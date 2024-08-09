@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rg?autoReconnect=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</property>
+        <property name="hibernate.connection.url">jdbc:mysql://jisblee.me:3306/rg?autoReconnect=true&verifyServerCertificate=true&useSSL=true&requireSSL=true&trustCertificateKeyStoreUrl=file:///home/ubuntu/mysql_certs_2024/truststore&trustCertificateKeyStorePassword=jiseob9123&clientCertificateKeyStoreUrl=file:///home/ubuntu/mysql_certs_2024/keystore&clientCertificateKeyStorePassword=jiseob9123</property>
         <property name="hibernate.connection.username">rg</property>
         <property name="hibernate.connection.password">jiseob9123</property>
         <property name="hibernate.connection.pool_size">30</property>
