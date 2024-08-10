@@ -43,7 +43,8 @@
         <echo>${deploy.war.filename}</echo>
         <scp file="${target.dir}/${was.war.filename}" 
         	todir="${was.user.id}@${was.server.ip}:${deploy.target.path}/was/${deploy.war.filename}" 
-        	keyfile="${key_file_path}" 
+        	keyfile="${key_file_path}"
+        	passphrase="jiseob9123" 
         	port="${was.ssh.port}" 
         	sftp="true" 
         	trust="true">
