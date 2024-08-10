@@ -1,5 +1,6 @@
 package rg.jwt.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +43,7 @@ public class BoardApiController {
     		@RequestBody Map<String, Object> input
     		) {
 
-    	int boardNo = 10;
+    	int boardNo = 0;
     	int currentPage = 1;
     	int pageArticleCount = 10;
     	
@@ -85,9 +86,17 @@ public class BoardApiController {
 		//log.info("paramMap : " + paramMap);
 		//log.info("boardNo : " + boardNo);
 		
+    	if (boardNo == 0) {
+    		return new ResponseEntity<List<CustomBoardArticleDto>>(new ArrayList<>(), HttpStatus.OK);
+    	}
+    	
+    	log.info("#### boardNo : " + boardNo);
+    	log.info("#### currentPage : " + currentPage);
+    	log.info("#### pageArticleCount : " + pageArticleCount);
+    	
 		List<CustomBoardArticleDto> articleList = boardArticleService.getBoardArticleList(boardNo, currentPage, pageArticleCount);
 		
-		log.info("size : " + articleList.size());
+		log.info("#### size : " + articleList.size());
 		
 		if (articleList != null && articleList.size() > 0) {
 			for (int i=0; i < articleList.size(); i++) {
