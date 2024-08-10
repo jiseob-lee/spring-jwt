@@ -1,1 +1,1 @@
-Spring Boot + JWT + logback
+Spring Boot + JWT + Hibernate + logback
