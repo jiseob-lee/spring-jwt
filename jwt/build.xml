@@ -39,6 +39,8 @@
         <echo>=====================================================</echo>
         <echo>trans war file dev was</echo>
         <echo>=====================================================</echo>
+        <echo>${key_file_path}</echo>
+        <echo>${deploy.war.filename}</echo>
         <scp file="${target.dir}/${was.war.filename}" 
         	todir="${was.user.id}@${was.server.ip}:${deploy.target.path}/was/${deploy.war.filename}" 
         	keyfile="${key_file_path}" 
