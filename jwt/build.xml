@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="spring_jwt" basedir=".">
+
+	<!-- 빌드 환경 설정 -->
+	<property name="target.dir" location="jwt/target" />
+	<property name="key_file_path" value="/var/jenkins_home/.ssh/id_rsa"/>
+	<property name="was.war.filename" value="rg-0.0.1-SNAPSHOT.war" />
+	<property name="deploy.target.path" value="/home/tomcat" />
+	<property name="was.ssh.port" value="22" />
+	<property name="was.user.id" value="tomcat" />
+	<property name="was.server.ip" value="jisblee.me" />
+	
+	
+    <target name="init">
+        <tstamp>
+            <format property="DAYTIME" pattern="yyyyMMddHHmmss" />
+        </tstamp>
+        <property name="build.datetime" value="${DAYTIME}" />
+        <property name="deploy.war.filename" value="SPRING_JWT-${build.system}.war" />
+    </target>
+	
+	
+    <!-- WAR 파일 생성 -->
+    <target name="make.war.deploy.file" depends="init">
+        <echo>=======================================================</echo>
+        <echo>[start] Make WAR Deploy File</echo>
+        <echo>=======================================================</echo>
+        <delete file="${target.dir}/${was.war.filename}" />
+        <war destfile="${target.dir}/${was.war.filename}" basedir="${target.dir}/SPRING_JWT-1.0.0">
+            <include name="**/*" />
+        </war>
+        <echo>=====================================================</echo>
+        <echo>[end] Make WAR Deploy File</echo>
+        <echo>=====================================================</echo>
+    </target>    
+
+
+    <target name="tran.war" depends="init">
+        <echo>=====================================================</echo>
+        <echo>trans war file dev was</echo>
+        <echo>=====================================================</echo>
+        <scp file="${target.dir}/${was.war.filename}" 
+        	todir="${was.user.id}@${was.server.ip}:${deploy.target.path}/was/${deploy.war.filename}" 
+        	keyfile="${key_file_path}" 
+        	port="${was.ssh.port}" 
+        	sftp="true" 
+        	trust="true">
+        </scp>
+    </target>
+
+</project>
