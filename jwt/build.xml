@@ -2,7 +2,7 @@
 <project name="spring_jwt" basedir=".">
 
 	<!-- 빌드 환경 설정 -->
-	<property name="target.dir" location="jwt/target" />
+	<property name="target.dir" location="./target" />
 	<property name="key_file_path" value="/var/jenkins_home/.ssh/id_rsa"/>
 	<property name="was.war.filename" value="rg-0.0.1-SNAPSHOT.war" />
 	<property name="deploy.target.path" value="/home/tomcat" />
