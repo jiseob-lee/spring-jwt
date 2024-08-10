@@ -90,20 +90,20 @@ public class BoardApiController {
     		return new ResponseEntity<List<CustomBoardArticleDto>>(new ArrayList<>(), HttpStatus.OK);
     	}
     	
-    	log.info("#### boardNo : " + boardNo);
-    	log.info("#### currentPage : " + currentPage);
-    	log.info("#### pageArticleCount : " + pageArticleCount);
+    	//log.info("#### boardNo : " + boardNo);
+    	//log.info("#### currentPage : " + currentPage);
+    	//log.info("#### pageArticleCount : " + pageArticleCount);
     	
 		List<CustomBoardArticleDto> articleList = boardArticleService.getBoardArticleList(boardNo, currentPage, pageArticleCount);
 		
-		log.info("#### size : " + articleList.size());
+		//log.info("#### size : " + articleList.size());
 		
-		if (articleList != null && articleList.size() > 0) {
-			for (int i=0; i < articleList.size(); i++) {
-				CustomBoardArticleDto article = articleList.get(i);
-				log.info("Subject : " + article.getSubject());
-			}
-		}
+		//if (articleList != null && articleList.size() > 0) {
+			//for (int i=0; i < articleList.size(); i++) {
+				//CustomBoardArticleDto article = articleList.get(i);
+				//log.info("Subject : " + article.getSubject());
+			//}
+		//}
 		
 		return new ResponseEntity<List<CustomBoardArticleDto>>(articleList, HttpStatus.OK);
 		
@@ -118,14 +118,14 @@ public class BoardApiController {
 		
 		List<CustomBoardDto> boardList = boardNameService.getBoardNameList();
 		
-		log.info("size : " + boardList.size());
+		//log.info("size : " + boardList.size());
 		
-		if (boardList != null && boardList.size() > 0) {
-			for (int i=0; i < boardList.size(); i++) {
-				CustomBoardDto board = boardList.get(i);
-				log.info("boardName : " + board.getBoardName());
-			}
-		}
+		//if (boardList != null && boardList.size() > 0) {
+			//for (int i=0; i < boardList.size(); i++) {
+				//CustomBoardDto board = boardList.get(i);
+				//log.info("boardName : " + board.getBoardName());
+			//}
+		//}
 		
 		return new ResponseEntity<List<CustomBoardDto>>(boardList, HttpStatus.OK);
 		
@@ -147,7 +147,7 @@ public class BoardApiController {
 		
 		boardTotalCount = boardArticleService.getBoardTotalCount(Integer.parseInt(boardNo));
 		
-		log.info("boardTotalCount : " + boardTotalCount);
+		//log.info("boardTotalCount : " + boardTotalCount);
 		
 		return new ResponseEntity<Long>(boardTotalCount, HttpStatus.OK);
 		

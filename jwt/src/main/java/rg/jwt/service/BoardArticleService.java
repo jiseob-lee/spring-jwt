@@ -59,8 +59,8 @@ public class BoardArticleService {
 		
 		query.setParameter("boardIdx", boardNo);
 		
-		log.info("#### currentPage : " + currentPage); 
-		log.info("#### pageArticleCount : " + pageArticleCount);
+		//log.info("#### currentPage : " + currentPage); 
+		//log.info("#### pageArticleCount : " + pageArticleCount);
 		
 		query.setFirstResult((currentPage - 1) * pageArticleCount);
 		query.setMaxResults(pageArticleCount);
@@ -70,22 +70,22 @@ public class BoardArticleService {
 		List<CustomBoardArticleDto> articleList = new ArrayList<>();
 		
 		for (Object[] arr: addrList) {
-			System.out.println(Arrays.toString(arr));
+			//System.out.println(Arrays.toString(arr));
 			BoardArticle boardArticle = (BoardArticle)arr[0];
 			Board board = (Board)arr[1];
-			System.out.println(board.getBoardName() + ", " + boardArticle.getSubject() + ", " + boardArticle.getDateCreated());
+			//System.out.println(board.getBoardName() + ", " + boardArticle.getSubject() + ", " + boardArticle.getDateCreated());
 			
 			CustomBoardArticleDto customBoardArticle = modelMapper.map(boardArticle, CustomBoardArticleDto.class);
 
-			log.info("boardArticle.getSubject : " + boardArticle.getSubject());
-			log.info("customBoardArticle.getSubject : " + customBoardArticle.getSubject());
-			log.info("boardArticle.getBoardName : " + boardArticle.getBoard().getBoardName());
-			log.info("customBoardArticle.getBoardName : " + customBoardArticle.getBoard().getBoardName());
-			log.info("boardArticle.getDateCreated : " + boardArticle.getDateCreated());
-			log.info("customBoardArticle.getDateCreated : " + customBoardArticle.getDateCreated());
-			log.info("customBoardArticle.getDateModified : " + customBoardArticle.getDateModified());
+			//log.info("boardArticle.getSubject : " + boardArticle.getSubject());
+			//log.info("customBoardArticle.getSubject : " + customBoardArticle.getSubject());
+			//log.info("boardArticle.getBoardName : " + boardArticle.getBoard().getBoardName());
+			//log.info("customBoardArticle.getBoardName : " + customBoardArticle.getBoard().getBoardName());
+			//log.info("boardArticle.getDateCreated : " + boardArticle.getDateCreated());
+			//log.info("customBoardArticle.getDateCreated : " + customBoardArticle.getDateCreated());
+			//log.info("customBoardArticle.getDateModified : " + customBoardArticle.getDateModified());
 			
-			log.info("제목 : " + customBoardArticle.getSubject());
+			//log.info("제목 : " + customBoardArticle.getSubject());
 			
 			articleList.add(customBoardArticle);
 		}
@@ -94,7 +94,7 @@ public class BoardArticleService {
 
 		//HibernateUtil.getSessionFactory().close();
 		
-		log.info("size : " + articleList.size());
+		//log.info("size : " + articleList.size());
 		
 		return articleList;
 		
