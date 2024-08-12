@@ -21,6 +21,7 @@ import rg.jwt.dto.CustomBoardDto;
 import rg.jwt.entity.BoardArticle;
 import rg.jwt.service.BoardArticleService;
 import rg.jwt.service.BoardNameService;
+import rg.jwt.service.BoardService;
 
 
 @RestController
@@ -32,6 +33,8 @@ public class BoardApiController {
 	private final BoardArticleService boardArticleService;
 	
 	private final BoardNameService boardNameService;
+	
+	private final BoardService boardService;
 	
 	//@PreAuthorize("hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')")
 	@PreAuthorize("hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_NORMAL')")
@@ -171,6 +174,17 @@ public class BoardApiController {
 		boardArticle = boardArticleService.getBoardContent(Integer.parseInt(articleId));
 		
 		return new ResponseEntity<BoardArticle>(boardArticle, HttpStatus.OK);
+		
+    }
+
+	@PreAuthorize("permitAll")
+    @GetMapping("getBoardList")
+	//@PostMapping(value = "boardArticleList", consumes="application/json")
+    public ResponseEntity<List<String>> getBoardList(HttpServletRequest request) {
+		
+		List<String> boardList = boardService.selectBoardList();
+		
+		return new ResponseEntity<List<String>>(boardList, HttpStatus.OK);
 		
     }
 	
