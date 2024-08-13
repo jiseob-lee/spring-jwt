@@ -3,9 +3,9 @@
 
     <property name="CONSOLE_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %magenta([%thread]) %highlight([%-3level]) %logger{5} - %msg %n" />
     <property name="ROLLING_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}  %logger{5} - %msg %n" />
-    <property name="FILE_NAME" value="D:\\work\\boot_log\\application.log" />
+    <property name="FILE_NAME" value="/home/tomcat/apache-tomcat-10.1.25/logs/application.log" />
     <!-- <property name="LOG_NAME_PATTERN" value="./boot_log/application-%d{yyyy-MM-dd-HH-mm}.%i.log" /> -->
-    <property name="LOG_NAME_PATTERN" value="D:\\work\\boot_log\\application-%d{yyyy-MM-dd}.%i.log" />
+    <property name="LOG_NAME_PATTERN" value="/home/tomcat/apache-tomcat-10.1.25/logs/application-%d{yyyy-MM-dd}.%i.log" />
     <property name="MAX_FILE_SIZE" value="10MB" />
     <property name="TOTAL_SIZE" value="30MB" />
     <property name="MAX_HISTORY" value="2" />
