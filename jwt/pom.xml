@@ -185,6 +185,37 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		
+		
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources-${environment}/</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
 	</build>
+
+ 	<profiles>
+		<!--  -->
+		<profile>
+			<id>local</id>
+			<properties>
+				<maven.test.skip>true</maven.test.skip>
+				<environment>local</environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>run</id>
+			<properties>
+				<maven.test.skip>true</maven.test.skip>
+				<environment>run</environment>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>
