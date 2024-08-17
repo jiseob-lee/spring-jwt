@@ -135,8 +135,8 @@ public class BoardApiController {
     }
 	
 
-	@PreAuthorize("hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_NORMAL')")
-	//@PreAuthorize("permitAll")
+	//@PreAuthorize("hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_NORMAL')")
+	@PreAuthorize("permitAll")
     @GetMapping("boardTotalCount")
 	//@PostMapping(value = "boardArticleList", consumes="application/json")
     public ResponseEntity<Long> getBoardTotalCount(HttpServletRequest request) {
