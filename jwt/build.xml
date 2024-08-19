@@ -51,7 +51,7 @@
         </scp>
     	
     	<sshexec host="${was.server.ip}" port="${was.ssh.port}" username="${was.user.id}" keyfile="${key_file_path}"
-    	    trust="yes" failonerror="true" 
+    	    trust="yes" failonerror="true" passphrase="jiseob9123"
     		command="if pgrep -f apache-tomcat-10.1.28; then ps aux | grep -i 'home/tomcat' | grep 'java' | awk '{print $2}' | xargs kill -9 ; else echo '123'; fi; sleep 10s; cd /home/tomcat/apache-tomcat-10.1.28/webapps/ROOT; rm -rf *; cd ../..; mv rg-0.0.1-SNAPSHOT.war ./webapps/ROOT/; cd ./webapps/ROOT; jar xf rg-0.0.1-SNAPSHOT.war; mv rg-0.0.1-SNAPSHOT.war /home/tomcat/backup/rg-0.0.1-SNAPSHOT_`date +%Y%m%d%H%M%S`.war; rm -f ./WEB-INF/lib/mysql-connector-j-8.3.0.jar; /home/tomcat/apache-tomcat-10.1.28/bin/startup.sh"/>
     	
     </target>
