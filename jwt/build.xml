@@ -49,11 +49,15 @@
         	sftp="true" 
         	trust="true">
         </scp>
-    	
+    	<!--
     	<sshexec host="${was.server.ip}" port="${was.ssh.port}" username="${was.user.id}" keyfile="${key_file_path}"
     	    trust="yes" failonerror="true" passphrase="jiseob9123"
     		command="if pgrep -f apache-tomcat-10.1.28; then ps aux | grep -i 'home/tomcat' | grep 'java' | awk '{print $2}' | xargs kill -9 ; else echo '123'; fi; echo '11'; sleep 10s; cd /home/tomcat/apache-tomcat-10.1.28/webapps/ROOT; echo '22'; rm -rf *; cd ../..; mv rg-0.0.1-SNAPSHOT.war ./webapps/ROOT/; echo '33'; cd ./webapps/ROOT; jar xf rg-0.0.1-SNAPSHOT.war; echo '44'; mv rg-0.0.1-SNAPSHOT.war /home/tomcat/backup/rg-0.0.1-SNAPSHOT_`date +%Y%m%d%H%M%S`.war; echo '55'; rm -f ./WEB-INF/lib/mysql-connector-j-8.3.0.jar; /home/tomcat/apache-tomcat-10.1.28/bin/startup.sh"/>
-    	
+    	-->
+    	<sshexec host="${was.server.ip}" port="${was.ssh.port}" username="${was.user.id}" keyfile="${key_file_path}"
+    	    trust="yes" failonerror="true" passphrase="jiseob9123"
+    		command="echo '00'; ps aux | grep -i 'home/tomcat' | grep 'java' | awk '{print $2}' | xargs kill -9 ; echo '11'; sleep 10s; cd /home/tomcat/apache-tomcat-10.1.28/webapps/ROOT; echo '22'; rm -rf *; cd ../..; mv rg-0.0.1-SNAPSHOT.war ./webapps/ROOT/; echo '33'; cd ./webapps/ROOT; jar xf rg-0.0.1-SNAPSHOT.war; echo '44'; mv rg-0.0.1-SNAPSHOT.war /home/tomcat/backup/rg-0.0.1-SNAPSHOT_`date +%Y%m%d%H%M%S`.war; echo '55'; rm -f ./WEB-INF/lib/mysql-connector-j-8.3.0.jar; /home/tomcat/apache-tomcat-10.1.28/bin/startup.sh"/>
+
     </target>
 
 </project>
