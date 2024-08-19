@@ -16,7 +16,7 @@
             <format property="DAYTIME" pattern="yyyyMMddHHmmss" />
         </tstamp>
         <property name="build.datetime" value="${DAYTIME}" />
-        <property name="deploy.war.filename" value="SPRING_JWT.war" />
+        <property name="deploy.war.filename" value="rg-0.0.1-SNAPSHOT.war" />
     </target>
 	
 	
