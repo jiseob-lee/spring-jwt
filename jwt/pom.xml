@@ -181,12 +181,14 @@
 		</dependency>
 		-->
 
+		<!--
 		<dependency>
 			<groupId>se.jiderhamn</groupId>
 			<artifactId>classloader-leak-prevention</artifactId>
 			<version>1.15.4</version>
 		</dependency>
-
+		-->
+		
 	</dependencies>
 
 	<build>
